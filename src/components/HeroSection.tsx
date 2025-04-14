@@ -3,10 +3,12 @@ import React, { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BookOpen } from 'lucide-react';
 import Hero3DScene from './Hero3DScene';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const HeroSection: React.FC = () => {
   const parallaxRef = useRef<HTMLDivElement>(null);
   const shapesRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
   
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -40,7 +42,7 @@ const HeroSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-b from-academy-peach/40 to-white pt-20">
+    <section className="relative min-h-screen overflow-hidden bg-white pt-20">
       <div className="absolute inset-0 parallax-bg"></div>
       
       {/* Floating shapes */}
@@ -52,8 +54,8 @@ const HeroSection: React.FC = () => {
       </div>
       
       <div className="container mx-auto px-4 pt-20 md:pt-28 pb-20 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
-          <div className="lg:w-1/2 space-y-6">
+        <div className="flex flex-col-reverse lg:flex-row items-center gap-12">
+          <div className="w-full lg:w-1/2 space-y-6">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               <span className="gradient-text">Accelerated Learning</span> for Academic Excellence
             </h1>
@@ -72,22 +74,11 @@ const HeroSection: React.FC = () => {
             </div>
           </div>
           
-          <div className="lg:w-1/2 relative">
-            <div className="relative w-full h-[400px] md:h-[450px] rounded-xl overflow-hidden tilt-card shadow-2xl">
-              {/* 3D Animation */}
-              <div className="absolute inset-0 w-full h-full z-10">
+          <div className="w-full lg:w-1/2 relative">
+            <div className="w-full h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px]">
+              {/* 3D Animation without container */}
+              <div className="absolute inset-0 w-full h-full">
                 <Hero3DScene />
-              </div>
-              
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-r from-academy-red/20 to-academy-orange/20 mix-blend-overlay z-20"></div>
-              
-              {/* Content overlay */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6 z-30">
-                <div className="card-content">
-                  <h3 className="text-white text-2xl font-semibold">Personalized Learning Experience</h3>
-                  <p className="text-white/80 mt-2">Small batch sizes ensure every student gets the guidance they need</p>
-                </div>
               </div>
             </div>
             

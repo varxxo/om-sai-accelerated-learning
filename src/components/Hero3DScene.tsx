@@ -11,8 +11,9 @@ function Model({ position = [0, 0, 0], rotation = [0, 0, 0] }) {
   useFrame((state) => {
     if (!meshRef.current) return;
     
-    // Gentle floating animation
+    // Enhanced dynamic animation
     meshRef.current.rotation.y = Math.sin(state.clock.getElapsedTime() * 0.3) * 0.2 + rotation[1];
+    meshRef.current.rotation.x = Math.sin(state.clock.getElapsedTime() * 0.2) * 0.1 + rotation[0];
     meshRef.current.position.y = Math.sin(state.clock.getElapsedTime() * 0.5) * 0.1 + position[1];
   });
 
@@ -72,7 +73,7 @@ function SmallSpheres() {
 
 const Hero3DScene: React.FC = () => {
   return (
-    <div className="h-full w-full">
+    <div className="w-full h-full">
       <Canvas dpr={[1, 2]} shadows>
         <PerspectiveCamera makeDefault position={[0, 0, 7]} fov={45} />
         <ambientLight intensity={0.5} />
