@@ -1,7 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { Menu, X, Phone, MessageCircle } from 'lucide-react';
+import { Menu, X, MessageCircle } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,7 +37,11 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center">
             <a href="#" className="flex items-center">
-              <span className="text-2xl font-bold gradient-text">OM SAI</span>
+              <img 
+                src="/lovable-uploads/fd9c91c1-4e97-47be-9d25-2234b3f23e6f.png" 
+                alt="Om Sai Educational Academy Logo" 
+                className="h-12 w-auto object-contain"
+              />
               <span className="hidden md:inline-block ml-2 text-sm font-medium tracking-wider text-academy-dark">EDUCATIONAL ACADEMY</span>
             </a>
           </div>
