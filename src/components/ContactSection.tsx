@@ -4,9 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Phone, Mail, MessageCircle, Clock, MapPin } from 'lucide-react';
 
 const ContactSection: React.FC = () => {
-  // WhatsApp click handler
   const handleWhatsAppClick = () => {
-    // Replace with the academy's actual phone number
     window.open('https://wa.me/+919876543210', '_blank');
   };
 
@@ -21,14 +19,14 @@ const ContactSection: React.FC = () => {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-10 items-center">
-          <div className="space-y-8 reveal opacity-0" style={{ transitionDelay: '0.2s' }}>
+        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="space-y-6 reveal opacity-0 order-2 lg:order-1" style={{ transitionDelay: '0.2s' }}>
             <div className="bg-white rounded-xl p-6 shadow-lg">
               <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
               
-              <div className="space-y-4">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-4">
                 <div className="flex items-start gap-4">
-                  <div className="bg-academy-orange/10 p-3 rounded-lg">
+                  <div className="bg-academy-orange/10 p-3 rounded-lg flex-shrink-0">
                     <Phone className="h-5 w-5 text-academy-orange" />
                   </div>
                   <div>
@@ -38,17 +36,17 @@ const ContactSection: React.FC = () => {
                 </div>
                 
                 <div className="flex items-start gap-4">
-                  <div className="bg-academy-orange/10 p-3 rounded-lg">
+                  <div className="bg-academy-orange/10 p-3 rounded-lg flex-shrink-0">
                     <Mail className="h-5 w-5 text-academy-orange" />
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-gray-500">Email</h4>
-                    <p className="text-lg">contact@omsaiacademy.com</p>
+                    <p className="text-lg break-all">contact@omsaiacademy.com</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start gap-4">
-                  <div className="bg-academy-orange/10 p-3 rounded-lg">
+                  <div className="bg-academy-orange/10 p-3 rounded-lg flex-shrink-0">
                     <MapPin className="h-5 w-5 text-academy-orange" />
                   </div>
                   <div>
@@ -58,7 +56,7 @@ const ContactSection: React.FC = () => {
                 </div>
                 
                 <div className="flex items-start gap-4">
-                  <div className="bg-academy-orange/10 p-3 rounded-lg">
+                  <div className="bg-academy-orange/10 p-3 rounded-lg flex-shrink-0">
                     <Clock className="h-5 w-5 text-academy-orange" />
                   </div>
                   <div>
@@ -80,8 +78,8 @@ const ContactSection: React.FC = () => {
             </div>
           </div>
           
-          <div className="reveal opacity-0" style={{ transitionDelay: '0.4s' }}>
-            <div className="tilt-card bg-white rounded-xl p-6 shadow-lg">
+          <div className="reveal opacity-0 order-1 lg:order-2" style={{ transitionDelay: '0.4s' }}>
+            <div className="bg-white rounded-xl p-6 shadow-lg">
               <h3 className="text-2xl font-semibold mb-6">Send us a Message</h3>
               
               <form className="space-y-4">

@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { CheckCircle2, Target, Eye, Heart } from 'lucide-react';
 
@@ -99,18 +98,10 @@ const AboutSection: React.FC = () => {
             <div className="relative tilt-card">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-academy-red to-academy-orange rounded-xl blur opacity-30"></div>
               <img 
-                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b" 
-                alt="Academic Excellence" 
+                src="/lovable-uploads/853a34a7-0f29-4d9b-af4b-0e8b206ec75e.png" 
+                alt="Educational Excellence Illustration" 
                 className="w-full h-auto rounded-xl relative shadow-xl"
               />
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-black/40 rounded-xl"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <div className="card-content">
-                  <span className="bg-academy-orange/80 text-white text-xs uppercase tracking-wider px-3 py-1 rounded-full">Since 2005</span>
-                  <h3 className="text-xl font-bold mt-2">Nurturing Excellence</h3>
-                  <p className="text-white/90 text-sm mt-1">17+ years of academic excellence</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
