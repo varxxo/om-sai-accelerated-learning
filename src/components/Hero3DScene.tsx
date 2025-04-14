@@ -17,15 +17,15 @@ function Model({ position = [0, 0, 0], rotation = [0, 0, 0] }) {
   });
 
   return (
-    <group position={position} rotation={rotation}>
+    <group position={position as any} rotation={rotation as any}>
       <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
         <mesh ref={meshRef} castShadow receiveShadow>
           <icosahedronGeometry args={[1.5, 2]} />
           <meshStandardMaterial
-            color="#ea384c"
+            color={"#ea384c"}
             roughness={0.3}
             metalness={0.7}
-            emissive="#ea384c"
+            emissive={"#ea384c"}
             emissiveIntensity={0.2}
           />
         </mesh>
@@ -54,7 +54,7 @@ function SmallSpheres() {
         
         return (
           <Float key={i} speed={2 + Math.random()} rotationIntensity={0.5} floatIntensity={2}>
-            <mesh position={[x, y, z]} scale={scale}>
+            <mesh position={[x, y, z] as any} scale={scale}>
               <sphereGeometry args={[1, 16, 16]} />
               <meshStandardMaterial 
                 color={i % 2 === 0 ? "#F97316" : "#FDE1D3"} 
