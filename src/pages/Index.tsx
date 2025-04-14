@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense } from 'react';
 import Navbar from '../components/Navbar';
 import HeroSection from '../components/HeroSection';
 import AboutSection from '../components/AboutSection';
@@ -32,14 +32,16 @@ const Index: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
-      <Navbar />
-      <HeroSection />
-      <AboutSection />
-      <ServicesSection />
-      <WhyChooseUsSection />
-      <ContactSection />
-      <Footer />
-      <WhatsAppButton />
+      <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+        <Navbar />
+        <HeroSection />
+        <AboutSection />
+        <ServicesSection />
+        <WhyChooseUsSection />
+        <ContactSection />
+        <Footer />
+        <WhatsAppButton />
+      </Suspense>
     </div>
   );
 };

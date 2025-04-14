@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BookOpen } from 'lucide-react';
+import Hero3DScene from './Hero3DScene';
 
 const HeroSection: React.FC = () => {
   const parallaxRef = useRef<HTMLDivElement>(null);
@@ -72,14 +73,17 @@ const HeroSection: React.FC = () => {
           </div>
           
           <div className="lg:w-1/2 relative">
-            <div className="relative w-full rounded-xl overflow-hidden tilt-card shadow-2xl">
-              <div className="absolute inset-0 bg-gradient-to-r from-academy-red/20 to-academy-orange/20 mix-blend-overlay"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" 
-                alt="Student studying" 
-                className="w-full h-auto rounded-xl"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
+            <div className="relative w-full h-[400px] md:h-[450px] rounded-xl overflow-hidden tilt-card shadow-2xl">
+              {/* 3D Animation */}
+              <div className="absolute inset-0 w-full h-full z-10">
+                <Hero3DScene />
+              </div>
+              
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-r from-academy-red/20 to-academy-orange/20 mix-blend-overlay z-20"></div>
+              
+              {/* Content overlay */}
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6 z-30">
                 <div className="card-content">
                   <h3 className="text-white text-2xl font-semibold">Personalized Learning Experience</h3>
                   <p className="text-white/80 mt-2">Small batch sizes ensure every student gets the guidance they need</p>
