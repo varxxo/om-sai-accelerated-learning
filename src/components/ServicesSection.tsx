@@ -1,6 +1,6 @@
 
 import React, { useEffect } from 'react';
-import { Calculator, Flask, BookOpen, Globe, Award, Trophy } from 'lucide-react';
+import { Calculator, Beaker, BookOpen, Globe, Award, Trophy } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
 
 const ServicesSection: React.FC = () => {
@@ -31,7 +31,7 @@ const ServicesSection: React.FC = () => {
       description: "Strengthening problem-solving skills and conceptual understanding to build a solid foundation."
     },
     {
-      icon: <Flask className="h-10 w-10" />,
+      icon: <Beaker className="h-10 w-10" />,
       title: "Science",
       description: "Making physics, chemistry and biology concepts engaging and easy to understand."
     },
