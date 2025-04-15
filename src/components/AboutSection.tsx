@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { CheckCircle2, Target, Eye, Heart } from 'lucide-react';
 
@@ -80,6 +79,7 @@ const AboutSection: React.FC = () => {
                     {[
                       "Excellence – We strive to deliver the highest quality education.",
                       "Integrity – We foster a culture of honesty and transparency.",
+                      "Personalized Learning – We tailor our teaching to individual needs.",
                       "Innovation – We incorporate modern teaching techniques.",
                       "Passion for Teaching – Our educators are dedicated to every student's journey."
                     ].map((value, index) => (
@@ -98,8 +98,8 @@ const AboutSection: React.FC = () => {
             <div className="relative tilt-card">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-academy-red to-academy-orange rounded-xl blur opacity-30"></div>
               <img 
-                src="/assets/6b7dbdf7-c55a-455e-831b-205353a51fe4.png" 
-                alt="OM SAI Educational Academy Logo" 
+                src="/lovable-uploads/853a34a7-0f29-4d9b-af4b-0e8b206ec75e.png" 
+                alt="Educational Excellence Illustration" 
                 className="w-full h-auto rounded-xl relative shadow-xl"
               />
             </div>

@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BookOpen } from 'lucide-react';
-import StudentScene from './StudentScene';
+import Hero3DScene from './Hero3DScene';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const HeroSection: React.FC = () => {
@@ -41,14 +41,6 @@ const HeroSection: React.FC = () => {
     };
   }, []);
 
-  const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const scrollToSubjects = () => {
-    document.getElementById('subjects')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <section className="relative min-h-screen overflow-hidden bg-white pt-20">
       <div className="absolute inset-0 parallax-bg"></div>
@@ -62,9 +54,8 @@ const HeroSection: React.FC = () => {
       </div>
       
       <div className="container mx-auto px-4 pt-20 md:pt-28 pb-20 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
-          {/* For mobile and tablet, we swap the order to put content first, 3D model second */}
-          <div className={`w-full lg:w-1/2 space-y-6 ${isMobile ? 'order-1' : ''}`}>
+        <div className="flex flex-col-reverse lg:flex-row items-center gap-12">
+          <div className="w-full lg:w-1/2 space-y-6">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               <span className="gradient-text">Accelerated Learning</span> for Academic Excellence
             </h1>
@@ -72,29 +63,22 @@ const HeroSection: React.FC = () => {
               At OM SAI EDUCATIONAL ACADEMY, we empower students from 3rd to 12th standard to achieve academic excellence through personalized education and expert guidance.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
-              <Button 
-                className="bg-academy-red hover:bg-academy-orange text-white px-6 py-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
-                onClick={scrollToContact}
-              >
-                Know More
+              <Button className="bg-academy-red hover:bg-academy-orange text-white px-6 py-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl">
+                Our Programs
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button 
-                variant="outline" 
-                className="border-academy-orange text-academy-orange hover:bg-academy-orange hover:text-white px-6 py-6 rounded-lg transition-all duration-300"
-                onClick={scrollToSubjects}
-              >
+              <Button variant="outline" className="border-academy-orange text-academy-orange hover:bg-academy-orange hover:text-white px-6 py-6 rounded-lg transition-all duration-300">
                 <BookOpen className="mr-2 h-5 w-5" />
-                Explore Subjects
+                Why Choose Us
               </Button>
             </div>
           </div>
           
-          <div className={`w-full lg:w-1/2 relative ${isMobile ? 'order-2' : ''}`}>
+          <div className="w-full lg:w-1/2 relative">
             <div className="w-full h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px]">
-              {/* 3D Student Scene Animation */}
+              {/* 3D Animation without container */}
               <div className="absolute inset-0 w-full h-full">
-                <StudentScene />
+                <Hero3DScene />
               </div>
             </div>
             

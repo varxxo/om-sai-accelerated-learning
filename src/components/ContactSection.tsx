@@ -5,7 +5,7 @@ import { Phone, Mail, MessageCircle, Clock, MapPin } from 'lucide-react';
 
 const ContactSection: React.FC = () => {
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/+918678927796', '_blank');
+    window.open('https://wa.me/+919876543210', '_blank');
   };
 
   return (
@@ -24,14 +24,14 @@ const ContactSection: React.FC = () => {
             <div className="bg-white rounded-xl p-6 shadow-lg">
               <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
               
-              <div className="flex flex-col gap-6">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-4">
                 <div className="flex items-start gap-4">
                   <div className="bg-academy-orange/10 p-3 rounded-lg flex-shrink-0">
                     <Phone className="h-5 w-5 text-academy-orange" />
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-gray-500">Phone</h4>
-                    <p className="text-base md:text-lg">86789 27796 / 90031 15998</p>
+                    <p className="text-lg">+91 9876 543210</p>
                   </div>
                 </div>
                 
@@ -41,7 +41,7 @@ const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-gray-500">Email</h4>
-                    <p className="text-base md:text-lg break-all">omsaieducationalacademy@gmail.com</p>
+                    <p className="text-lg break-all">contact@omsaiacademy.com</p>
                   </div>
                 </div>
                 
@@ -51,10 +51,7 @@ const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-gray-500">Location</h4>
-                    <p className="text-base">
-                      Old No.5, New No.9, Mariappan Street, <br />
-                      Vanniya Teynampet, Chennai - 600 018
-                    </p>
+                    <p className="text-lg">123 Education Street, Bangalore, India</p>
                   </div>
                 </div>
                 
