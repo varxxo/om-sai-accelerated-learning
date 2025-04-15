@@ -1,7 +1,7 @@
 
 import React, { useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
-import { Float, Html } from '@react-three/drei';
+import { Float } from '@react-three/drei';
 import * as THREE from 'three';
 import StudentModel from './StudentModel';
 
