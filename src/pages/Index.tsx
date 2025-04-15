@@ -1,5 +1,5 @@
 
-import React, { useEffect, Suspense, lazy } from 'react';
+import React, { useEffect, Suspense } from 'react';
 import Navbar from '../components/Navbar';
 import AboutSection from '../components/AboutSection';
 import SubjectsSection from '../components/ServicesSection';
@@ -7,9 +7,7 @@ import WhyChooseUsSection from '../components/WhyChooseUsSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 import WhatsAppButton from '../components/WhatsAppButton';
-
-// Lazy load the HeroSection with 3D content for better performance
-const HeroSection = lazy(() => import('../components/HeroSection'));
+import HeroSection from '../components/HeroSection';
 
 const LoadingFallback = () => (
   <div className="min-h-screen flex items-center justify-center bg-white">

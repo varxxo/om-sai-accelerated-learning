@@ -92,7 +92,7 @@ const HeroSection: React.FC = () => {
           
           <div className={`w-full lg:w-1/2 relative ${isMobile ? 'order-2' : ''}`}>
             <div className="w-full h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px]">
-              {/* New 3D Student Scene Animation */}
+              {/* 3D Student Scene Animation */}
               <div className="absolute inset-0 w-full h-full">
                 <StudentScene />
               </div>

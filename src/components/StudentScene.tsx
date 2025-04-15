@@ -1,9 +1,44 @@
 
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, Suspense, useEffect } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { useGLTF, Environment, Float, PerspectiveCamera, useCursor, Html } from '@react-three/drei';
+import { Environment, Float, PerspectiveCamera, useCursor, Html } from '@react-three/drei';
 import * as THREE from 'three';
 
+// Fallback for when the 3D scene is loading or fails
+const ModelFallback = () => (
+  <div className="w-full h-full flex items-center justify-center bg-white/50 rounded-lg">
+    <div className="flex flex-col items-center">
+      <div className="w-12 h-12 border-4 border-academy-orange border-t-academy-red rounded-full animate-spin"></div>
+      <p className="mt-4 text-academy-dark text-sm">Loading 3D scene...</p>
+    </div>
+  </div>
+);
+
+// Error boundary for catching 3D rendering errors
+class ThreeJSErrorBoundary extends React.Component {
+  state = { hasError: false };
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="w-full h-full flex items-center justify-center bg-white/80 rounded-lg">
+          <div className="text-center p-4">
+            <p className="text-academy-red font-medium">3D visualization unavailable</p>
+            <p className="text-sm text-gray-600 mt-2">Please try again later</p>
+          </div>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
+
+// Student model component
 function StudentModel({ position = [0, 0, 0], ...props }) {
   const meshRef = useRef<THREE.Group>(null);
   const [hovered, setHovered] = useState(false);
@@ -179,18 +214,53 @@ function StudentGroup() {
   );
 }
 
-const StudentScene: React.FC = () => {
+const SimpleScene = () => {
   return (
-    <Canvas dpr={[1, 2]} shadows>
-      <PerspectiveCamera makeDefault position={[0, 0, 5]} fov={50} />
-      <ambientLight intensity={0.5} />
-      <spotLight position={[5, 5, 5]} angle={0.15} penumbra={1} intensity={1} castShadow />
-      <pointLight position={[-5, -5, -5]} intensity={0.5} />
-      
-      <StudentGroup />
-      
-      <Environment preset="city" />
-    </Canvas>
+    <div className="w-full h-full bg-gray-50">
+      <div className="w-full h-full flex items-center justify-center">
+        <div className="text-center">
+          <h3 className="text-xl font-bold text-academy-orange">OM SAI</h3>
+          <p className="text-sm text-academy-dark">EDUCATIONAL ACADEMY</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const StudentScene: React.FC = () => {
+  const [canRender3D, setCanRender3D] = useState(true);
+
+  // Check if browser supports WebGL
+  useEffect(() => {
+    try {
+      const canvas = document.createElement('canvas');
+      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      setCanRender3D(!!gl);
+    } catch (e) {
+      console.error("WebGL not supported", e);
+      setCanRender3D(false);
+    }
+  }, []);
+
+  if (!canRender3D) {
+    return <SimpleScene />;
+  }
+
+  return (
+    <ThreeJSErrorBoundary>
+      <Suspense fallback={<ModelFallback />}>
+        <Canvas dpr={[1, 2]} shadows>
+          <PerspectiveCamera makeDefault position={[0, 0, 5]} fov={50} />
+          <ambientLight intensity={0.5} />
+          <spotLight position={[5, 5, 5]} angle={0.15} penumbra={1} intensity={1} castShadow />
+          <pointLight position={[-5, -5, -5]} intensity={0.5} />
+          
+          <StudentGroup />
+          
+          <Environment preset="city" />
+        </Canvas>
+      </Suspense>
+    </ThreeJSErrorBoundary>
   );
 };
 
