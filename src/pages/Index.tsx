@@ -2,7 +2,7 @@
 import React, { useEffect, Suspense, lazy } from 'react';
 import Navbar from '../components/Navbar';
 import AboutSection from '../components/AboutSection';
-import ServicesSection from '../components/ServicesSection';
+import SubjectsSection from '../components/ServicesSection';
 import WhyChooseUsSection from '../components/WhyChooseUsSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
@@ -48,7 +48,7 @@ const Index: React.FC = () => {
         <HeroSection />
       </Suspense>
       <AboutSection />
-      <ServicesSection />
+      <SubjectsSection />
       <WhyChooseUsSection />
       <ContactSection />
       <Footer />

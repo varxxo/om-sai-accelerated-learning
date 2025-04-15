@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
             <ul className="space-y-3">
-              {['Home', 'About Us', 'Services', 'Why Choose Us', 'Contact Us', 'Enroll Now'].map((link, index) => (
+              {['Home', 'About Us', 'Subjects', 'Why Choose Us', 'Contact Us', 'Enroll Now'].map((link, index) => (
                 <li key={index}>
                   <a 
                     href={`#${link.toLowerCase().replace(/\s+/g, '-')}`} 
@@ -60,7 +60,7 @@ const Footer: React.FC = () => {
               ].map((program, index) => (
                 <li key={index}>
                   <a 
-                    href="#services" 
+                    href="#subjects" 
                     className="text-gray-400 hover:text-academy-orange transition-colors duration-300"
                   >
                     {program}
@@ -75,15 +75,18 @@ const Footer: React.FC = () => {
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <MapPin className="text-academy-orange h-5 w-5 mt-0.5" />
-                <p className="text-gray-400">123 Education Street, Bangalore, India</p>
+                <p className="text-gray-400">
+                  Old No.5, New No.9, Mariappan Street, <br />
+                  Vanniya Teynampet, Chennai - 600 018
+                </p>
               </div>
               <div className="flex items-start gap-3">
                 <Phone className="text-academy-orange h-5 w-5 mt-0.5" />
-                <p className="text-gray-400">+91 9876 543210</p>
+                <p className="text-gray-400">86789 27796 / 90031 15998</p>
               </div>
               <div className="flex items-start gap-3">
                 <Mail className="text-academy-orange h-5 w-5 mt-0.5" />
-                <p className="text-gray-400">contact@omsaiacademy.com</p>
+                <p className="text-gray-400">omsaieducationalacademy@gmail.com</p>
               </div>
             </div>
           </div>

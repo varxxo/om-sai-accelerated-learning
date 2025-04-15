@@ -5,8 +5,8 @@ import { MessageCircle } from 'lucide-react';
 const WhatsAppButton: React.FC = () => {
   // WhatsApp click handler
   const handleWhatsAppClick = () => {
-    // Replace with the academy's actual phone number
-    window.open('https://wa.me/+919876543210', '_blank');
+    // Updated with the academy's actual phone number
+    window.open('https://wa.me/+918678927796', '_blank');
   };
 
   return (

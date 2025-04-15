@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { Calculator, Beaker, BookOpen, Globe, Award, Trophy } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
 
-const ServicesSection: React.FC = () => {
+const SubjectsSection: React.FC = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -24,7 +24,7 @@ const ServicesSection: React.FC = () => {
     };
   }, []);
 
-  const services = [
+  const subjects = [
     {
       icon: <Calculator className="h-10 w-10" />,
       title: "Mathematics",
@@ -58,10 +58,10 @@ const ServicesSection: React.FC = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-gradient-to-b from-white to-academy-peach/20 relative">
+    <section id="subjects" className="py-20 bg-gradient-to-b from-white to-academy-peach/20 relative">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 reveal opacity-0">
-          <h2 className="section-heading">Our Services</h2>
+          <h2 className="section-heading">Our Subjects</h2>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto mt-6">
             We offer comprehensive tuition programs for students from 3rd to 12th standard, 
             covering key subjects and exam preparation to ensure academic success.
@@ -69,7 +69,7 @@ const ServicesSection: React.FC = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
+          {subjects.map((subject, index) => (
             <div 
               key={index} 
               className="reveal opacity-0" 
@@ -78,10 +78,10 @@ const ServicesSection: React.FC = () => {
               <Card className="h-full overflow-hidden hover-scale border-none shadow-lg bg-white/80 backdrop-blur-sm">
                 <CardContent className="p-6">
                   <div className="h-16 w-16 bg-gradient-to-br from-academy-orange to-academy-red rounded-2xl p-3 text-white mb-4 flex items-center justify-center">
-                    {service.icon}
+                    {subject.icon}
                   </div>
-                  <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-                  <p className="text-gray-700">{service.description}</p>
+                  <h3 className="text-xl font-semibold mb-3">{subject.title}</h3>
+                  <p className="text-gray-700">{subject.description}</p>
                 </CardContent>
               </Card>
             </div>
@@ -98,4 +98,4 @@ const ServicesSection: React.FC = () => {
   );
 };
 
-export default ServicesSection;
+export default SubjectsSection;

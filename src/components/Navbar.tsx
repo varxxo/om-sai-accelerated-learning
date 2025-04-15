@@ -1,6 +1,7 @@
+
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { Menu, X, MessageCircle } from 'lucide-react';
+import { Menu, X, Bookmark } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,7 +27,7 @@ const Navbar: React.FC = () => {
   const navLinks = [
     { name: 'Home', href: '#' },
     { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
+    { name: 'Subjects', href: '#subjects' },
     { name: 'Why Choose Us', href: '#why-choose-us' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -38,9 +39,9 @@ const Navbar: React.FC = () => {
           <div className="flex items-center">
             <a href="#" className="flex items-center">
               <img 
-                src="/lovable-uploads/fd9c91c1-4e97-47be-9d25-2234b3f23e6f.png" 
+                src="/assets/6b7dbdf7-c55a-455e-831b-205353a51fe4.png" 
                 alt="Om Sai Educational Academy Logo" 
-                className="h-12 w-auto object-contain"
+                className="h-14 w-auto object-contain"
               />
               <span className="hidden md:inline-block ml-2 text-sm font-medium tracking-wider text-academy-dark">EDUCATIONAL ACADEMY</span>
             </a>
@@ -57,9 +58,13 @@ const Navbar: React.FC = () => {
                 {link.name}
               </a>
             ))}
-            <Button size="sm" className="bg-academy-orange hover:bg-academy-red text-white transition-colors duration-300">
-              <MessageCircle size={16} className="mr-2" />
-              WhatsApp Us
+            <Button 
+              size="sm" 
+              className="bg-academy-orange hover:bg-academy-red text-white transition-colors duration-300"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              <Bookmark size={16} className="mr-2" />
+              Enroll Now
             </Button>
           </nav>
 
@@ -87,9 +92,16 @@ const Navbar: React.FC = () => {
                   {link.name}
                 </a>
               ))}
-              <Button size="sm" className="bg-academy-orange hover:bg-academy-red text-white self-start transition-colors duration-300">
-                <MessageCircle size={16} className="mr-2" />
-                WhatsApp Us
+              <Button 
+                size="sm" 
+                className="bg-academy-orange hover:bg-academy-red text-white self-start transition-colors duration-300"
+                onClick={() => {
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                <Bookmark size={16} className="mr-2" />
+                Enroll Now
               </Button>
             </nav>
           </div>
