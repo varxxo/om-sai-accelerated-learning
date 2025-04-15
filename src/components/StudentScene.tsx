@@ -14,11 +14,20 @@ const ModelFallback = () => (
   </div>
 );
 
+// Define proper props interface for the error boundary
+interface ErrorBoundaryProps {
+  children: React.ReactNode;
+}
+
+interface ErrorBoundaryState {
+  hasError: boolean;
+}
+
 // Error boundary for catching 3D rendering errors
-class ThreeJSErrorBoundary extends React.Component {
+class ThreeJSErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
   state = { hasError: false };
 
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError(error: any) {
     return { hasError: true };
   }
 
