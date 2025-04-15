@@ -47,8 +47,15 @@ class ThreeJSErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
   }
 }
 
+// Define types for the student model component props
+interface StudentModelProps {
+  position?: [number, number, number];
+  scale?: number | [number, number, number];
+  [key: string]: any;
+}
+
 // Student model component
-function StudentModel({ position = [0, 0, 0], ...props }) {
+function StudentModel({ position = [0, 0, 0] as [number, number, number], ...props }: StudentModelProps) {
   const meshRef = useRef<THREE.Group>();
   const [hovered, setHovered] = useState(false);
   const [waving, setWaving] = useState(false);
@@ -109,7 +116,7 @@ function StudentModel({ position = [0, 0, 0], ...props }) {
       </mesh>
       
       {/* Student Hand (for waving) */}
-      <group position={[0.6, 0.2, 0]}>
+      <group position={[0.6, 0.2, 0] as [number, number, number]}>
         <mesh castShadow>
           <boxGeometry args={[0.1, 0.4, 0.1]} />
           <meshStandardMaterial color="#f39c12" />
@@ -117,33 +124,33 @@ function StudentModel({ position = [0, 0, 0], ...props }) {
       </group>
       
       {/* Student Head */}
-      <mesh position={[0, 0.9, 0]} castShadow>
+      <mesh position={[0, 0.9, 0] as [number, number, number]} castShadow>
         <sphereGeometry args={[0.3, 32, 32]} />
         <meshStandardMaterial color="#f39c12" />
       </mesh>
       
       {/* Glasses */}
-      <mesh position={[0, 0.9, 0.2]} castShadow>
+      <mesh position={[0, 0.9, 0.2] as [number, number, number]} castShadow>
         <boxGeometry args={[0.5, 0.1, 0.05]} />
         <meshStandardMaterial color="#222" />
       </mesh>
       
       {/* Trophy - only visible when hovered */}
       {hovered && (
-        <group position={[0, 1.5, 0]} scale={[0.5, 0.5, 0.5]}>
+        <group position={[0, 1.5, 0] as [number, number, number]} scale={[0.5, 0.5, 0.5] as [number, number, number]}>
           <mesh castShadow>
             <cylinderGeometry args={[0.3, 0.2, 0.5, 32]} />
             <meshStandardMaterial color="#FFD700" metalness={0.8} roughness={0.2} />
           </mesh>
-          <mesh position={[0, 0.3, 0]} castShadow>
+          <mesh position={[0, 0.3, 0] as [number, number, number]} castShadow>
             <sphereGeometry args={[0.3, 32, 32]} />
             <meshStandardMaterial color="#FFD700" metalness={0.8} roughness={0.2} />
           </mesh>
-          <mesh position={[0, -0.4, 0]} castShadow>
+          <mesh position={[0, -0.4, 0] as [number, number, number]} castShadow>
             <boxGeometry args={[0.4, 0.3, 0.4]} />
             <meshStandardMaterial color="#8B4513" />
           </mesh>
-          <Html position={[0, 0, 0.5]} center>
+          <Html position={[0, 0, 0.5] as [number, number, number]} center>
             <div className="bg-white/80 backdrop-blur-sm px-3 py-1 rounded-lg shadow-md whitespace-nowrap">
               <p className="text-sm font-bold text-academy-orange">Top Student!</p>
             </div>
@@ -154,7 +161,10 @@ function StudentModel({ position = [0, 0, 0], ...props }) {
   );
 }
 
-function StudentGroup() {
+// Define types for the student group component
+interface StudentGroupProps {}
+
+function StudentGroup({}: StudentGroupProps) {
   const groupRef = useRef<THREE.Group>();
   const { viewport } = useThree();
   const isMobile = viewport.width < 5; // Adjust based on viewport width
@@ -181,27 +191,27 @@ function StudentGroup() {
   return (
     <group ref={groupRef}>
       <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
-        <StudentModel position={[0, 0, 0]} scale={isMobile ? 0.8 : 1} />
-        <StudentModel position={[-1.5, 0, -0.5]} scale={isMobile ? 0.7 : 0.9} />
-        <StudentModel position={[1.5, 0, -0.5]} scale={isMobile ? 0.7 : 0.9} />
+        <StudentModel position={[0, 0, 0] as [number, number, number]} scale={isMobile ? 0.8 : 1} />
+        <StudentModel position={[-1.5, 0, -0.5] as [number, number, number]} scale={isMobile ? 0.7 : 0.9} />
+        <StudentModel position={[1.5, 0, -0.5] as [number, number, number]} scale={isMobile ? 0.7 : 0.9} />
         
         {/* Classroom elements */}
-        <mesh position={[0, -1, -1]} receiveShadow rotation={[-Math.PI / 2, 0, 0]}>
+        <mesh position={[0, -1, -1] as [number, number, number]} receiveShadow rotation={[-Math.PI / 2, 0, 0] as [number, number, number]}>
           <planeGeometry args={[5, 5]} />
           <meshStandardMaterial color="#f5f5f5" />
         </mesh>
         
         {/* Blackboard */}
-        <mesh position={[0, 0.5, -2]} receiveShadow>
+        <mesh position={[0, 0.5, -2] as [number, number, number]} receiveShadow>
           <boxGeometry args={[3, 1.5, 0.1]} />
           <meshStandardMaterial color="#2c3e50" />
         </mesh>
         
         {/* Text on blackboard */}
-        <mesh position={[0, 0.5, -1.95]}>
+        <mesh position={[0, 0.5, -1.95] as [number, number, number]}>
           <planeGeometry args={[2.8, 1.3]} />
           <meshBasicMaterial color="#2c3e50" />
-          <Html position={[0, 0, 0.1]} center transform>
+          <Html position={[0, 0, 0.1] as [number, number, number]} center transform>
             <div className="text-white text-center" style={{ width: '300px' }}>
               <h3 className="text-xl font-bold">OM SAI</h3>
               <p className="text-sm">EDUCATIONAL ACADEMY</p>
@@ -210,11 +220,11 @@ function StudentGroup() {
         </mesh>
         
         {/* Books */}
-        <mesh position={[-1, -0.8, 0]} rotation={[0, Math.PI / 6, 0]}>
+        <mesh position={[-1, -0.8, 0] as [number, number, number]} rotation={[0, Math.PI / 6, 0] as [number, number, number]}>
           <boxGeometry args={[0.4, 0.1, 0.3]} />
           <meshStandardMaterial color="#e74c3c" />
         </mesh>
-        <mesh position={[1, -0.8, 0]} rotation={[0, -Math.PI / 6, 0]}>
+        <mesh position={[1, -0.8, 0] as [number, number, number]} rotation={[0, -Math.PI / 6, 0] as [number, number, number]}>
           <boxGeometry args={[0.4, 0.15, 0.3]} />
           <meshStandardMaterial color="#3498db" />
         </mesh>
@@ -259,10 +269,10 @@ const StudentScene: React.FC = () => {
     <ThreeJSErrorBoundary>
       <Suspense fallback={<ModelFallback />}>
         <Canvas dpr={[1, 2]} shadows>
-          <PerspectiveCamera makeDefault position={[0, 0, 5]} fov={50} />
+          <PerspectiveCamera makeDefault position={[0, 0, 5] as [number, number, number]} fov={50} />
           <ambientLight intensity={0.5} />
-          <spotLight position={[5, 5, 5]} angle={0.15} penumbra={1} intensity={1} castShadow />
-          <pointLight position={[-5, -5, -5]} intensity={0.5} />
+          <spotLight position={[5, 5, 5] as [number, number, number]} angle={0.15} penumbra={1} intensity={1} castShadow />
+          <pointLight position={[-5, -5, -5] as [number, number, number]} intensity={0.5} />
           
           <StudentGroup />
           
