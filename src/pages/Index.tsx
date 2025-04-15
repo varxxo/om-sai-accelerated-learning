@@ -8,6 +8,7 @@ import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 import WhatsAppButton from '../components/WhatsAppButton';
 import HeroSection from '../components/HeroSection';
+import ScrollToTop from '../components/ScrollToTop';
 
 const LoadingFallback = () => (
   <div className="min-h-screen flex items-center justify-center bg-white">
@@ -51,6 +52,7 @@ const Index: React.FC = () => {
       <ContactSection />
       <Footer />
       <WhatsAppButton />
+      <ScrollToTop />
     </div>
   );
 };

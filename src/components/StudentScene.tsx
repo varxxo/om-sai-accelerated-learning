@@ -49,7 +49,7 @@ class ThreeJSErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
 
 // Student model component
 function StudentModel({ position = [0, 0, 0], ...props }) {
-  const meshRef = useRef<THREE.Group>(null);
+  const meshRef = useRef<THREE.Group>();
   const [hovered, setHovered] = useState(false);
   const [waving, setWaving] = useState(false);
   
@@ -79,7 +79,7 @@ function StudentModel({ position = [0, 0, 0], ...props }) {
     meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
     
     // Waving animation
-    if (waving) {
+    if (waving && meshRef.current.children.length > 1) {
       // Simulate waving hand by rotating a child group
       const hand = meshRef.current.children[1];
       if (hand) {
@@ -91,7 +91,7 @@ function StudentModel({ position = [0, 0, 0], ...props }) {
   return (
     <group
       ref={meshRef}
-      position={position as any}
+      position={position}
       onPointerEnter={() => {
         setHovered(true);
         setWaving(true);
@@ -155,7 +155,7 @@ function StudentModel({ position = [0, 0, 0], ...props }) {
 }
 
 function StudentGroup() {
-  const groupRef = useRef<THREE.Group>(null);
+  const groupRef = useRef<THREE.Group>();
   const { viewport } = useThree();
   const isMobile = viewport.width < 5; // Adjust based on viewport width
   
